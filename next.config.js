@@ -11,6 +11,8 @@ const path = require('path');
 const env = process.env.ENV || process.env.NODE_ENV;
 dotenv.config({ path: path.resolve(__dirname, `config/.env.${env}`) });
 
+console.log(`Using ${env} environment`);
+
 const nextConfig = {
   images: {
     // allow images from all domains

@@ -1,18 +1,19 @@
 version: '3.8'
 
 services:
-  app:
+  nextjs:
     build:
       context: ..
       dockerfile: docker/Dockerfile
+    restart: always
+    container_name: blog_nextjs
     ports:
       - '3001:3001'
+      - '5555:5555' # Prisma Studio
     environment:
       - NODE_ENV=production
     networks:
       - project_hub_network
-
-
 
 networks:
   project_hub_network:

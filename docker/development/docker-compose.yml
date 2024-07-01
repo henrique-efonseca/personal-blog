@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  app:
+  nextjs:
     build:
       context: ../.. # Context is the root of your project
       dockerfile: docker/development/nextjs.Dockerfile # Path to the Dockerfile within the context
     restart: always
-    container_name: nextjs
+    container_name: blog_nextjs_dev
     ports:
       - '3001:3001'
       - '5555:5555' # Prisma Studio
