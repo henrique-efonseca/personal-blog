@@ -1,0 +1,78 @@
+.container {
+}
+
+.title {
+  margin: 50px 0px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: capitalize;
+  width: 15%;
+  height: 80px;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.category:hover {
+  transform: scale(1.1);
+  font-weight: 500;
+}
+
+.category.technology {
+  background-color: #57c4ff31;
+}
+
+.category.business {
+  background-color: #da85c731;
+}
+
+.category.society {
+  background-color: #7fb88133;
+}
+
+.category.economics {
+  background-color: #ff795736;
+}
+
+.category.lifestyle {
+  background-color: #ffb04f45;
+}
+
+.category.meditations {
+  background-color: #c208a931;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 1280px) {
+  .category {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .category {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .category {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .category {
+    width: 100%;
+  }
+}

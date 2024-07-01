@@ -1,0 +1,58 @@
+/* blogPage.module.css */
+
+.container {
+  padding: 20px;
+}
+
+.title {
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.content {
+  display: flex;
+  gap: 100px;
+}
+
+.menuContainer {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 20px; /* Adjust this value based on your layout */
+  align-self: flex-start;
+  flex: 2; /* Ensures it takes available space */
+}
+
+.title.technology {
+  background-color: #57c4ff;
+}
+
+.title.business {
+  background-color: #da85c7;
+}
+
+.title.society {
+  background-color: #7fb881;
+}
+
+.title.economics {
+  background-color: #ff7957;
+}
+
+.title.lifestyle {
+  background-color: #ffb04f;
+}
+
+.title.meditations {
+  background-color: #c208a9;
+}
+
+.title.projects {
+  background-color: #000000;
+}
+
+/* Default background color */
+.title.default {
+  background-color: rgb(141, 141, 141);
+}

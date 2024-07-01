@@ -1,0 +1,9 @@
+[
+  {
+    "_id": "clx3isy3a0001v8pco1xl2te8",
+    "createdAt": { "$date": { "$numberLong": "1717694245270" } },
+    "desc": "Teste comment",
+    "userEmail": "henrique.efonseca@gmail.com",
+    "postId": "clx3gb6xd0006v854gdeiea4t"
+  }
+]

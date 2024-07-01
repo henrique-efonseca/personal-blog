@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "clx3wqxo10000v8xgq1d73zks",
+    "slug": "technology",
+    "title": "Technology",
+    "img": "/technology.jpg"
+  },
+  {
+    "_id": "clx3wr5us0001v8xgy2795md6",
+    "slug": "business",
+    "title": "Business",
+    "img": "/business.jpg"
+  },
+  {
+    "_id": "clxxetsyc0000v8mw59wm3ifl",
+    "slug": "society",
+    "title": "Society",
+    "img": "/society.jpg"
+  },
+  {
+    "_id": "clxxeu6cu0001v8mwewfzn04j",
+    "slug": "economics",
+    "title": "Economics",
+    "img": "/economics.jpg"
+  },
+  {
+    "_id": "clxxeurjz0002v8mwq7khyxbu",
+    "slug": "lifestyle",
+    "title": "Lifestyle",
+    "img": "/lifestyle.jpg"
+  },
+  {
+    "_id": "clxxeve9q0003v8mwzrociqew",
+    "slug": "meditations",
+    "title": "Meditations",
+    "img": "/meditations.jpg"
+  },
+  {
+    "_id": "clxxewe650004v8mw75xkqgmx",
+    "slug": "projects",
+    "title": "Projects",
+    "img": null
+  },
+  {
+    "_id": "clxxey1ad0005v8mweg7pqfl6",
+    "slug": "experiences",
+    "title": "Experiences",
+    "img": null
+  }
+]

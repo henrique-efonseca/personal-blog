@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "clx3gb6xd0006v854gdeiea4t",
+    "createdAt": { "$date": { "$numberLong": "1717690057682" } },
+    "slug": "1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit",
+    "title": "#1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, quam nisi magni ea laborum inventore voluptatum laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium quisquam! Harum unde sit culpa debitis.",
+    "img": "https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg",
+    "views": { "$numberLong": "3" },
+    "userEmail": "henrique.efonseca@gmail.com"
+  },
+  {
+    "_id": "clx40k7ar0003v8s8x39gi80u",
+    "createdAt": { "$date": { "$numberLong": "1717724070388" } },
+    "slug": "2-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit",
+    "title": "#2 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, quam nisi magni ea laborum inventore voluptatum laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium quisquam! Harum unde sit culpa debitis.",
+    "img": "https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg",
+    "views": { "$numberLong": "0" },
+    "userEmail": "henrique.efonseca@gmail.com"
+  },
+  {
+    "_id": "clx40muw60005v8s84rlghw7b",
+    "createdAt": { "$date": { "$numberLong": "1717724194279" } },
+    "slug": "3-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit",
+    "title": "#3 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, quam nisi magni ea laborum inventore voluptatum laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium quisquam! Harum unde sit culpa debitis.",
+    "img": "https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg",
+    "views": { "$numberLong": "0" },
+    "userEmail": "henrique.efonseca@gmail.com"
+  },
+  {
+    "_id": "clx40mzna0007v8s81qf1048l",
+    "createdAt": { "$date": { "$numberLong": "1717724200438" } },
+    "slug": "4-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit",
+    "title": "#4 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, quam nisi magni ea laborum inventore voluptatum laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium quisquam! Harum unde sit culpa debitis.",
+    "img": "https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg",
+    "views": { "$numberLong": "0" },
+    "userEmail": "henrique.efonseca@gmail.com"
+  },
+  {
+    "_id": "clx40n4yk0009v8s8wsytm98a",
+    "createdAt": { "$date": { "$numberLong": "1717724207324" } },
+    "slug": "5-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit",
+    "title": "#5 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, quam nisi magni ea laborum inventore voluptatum laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium quisquam! Harum unde sit culpa debitis.",
+    "img": "https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg",
+    "views": { "$numberLong": "0" },
+    "userEmail": "henrique.efonseca@gmail.com"
+  }
+]

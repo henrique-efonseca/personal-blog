@@ -1,0 +1,50 @@
+.categoryList {
+  margin-top: 35px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.categoryItem:hover {
+  transform: scale(1.1);
+  font-weight: 500;
+}
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 14px;
+  gap: 10px; /* Add gap between image and text */
+}
+
+.categoryItem.technology {
+  background-color: #57c4ff31;
+}
+
+.categoryItem.business {
+  background-color: #da85c731;
+}
+
+.categoryItem.society {
+  background-color: #7fb88133;
+}
+
+.categoryItem.economics {
+  background-color: #ff795736;
+}
+
+.categoryItem.lifestyle {
+  background-color: #ffb04f45;
+}
+
+.categoryItem.meditations {
+  background-color: #c208a931;
+}

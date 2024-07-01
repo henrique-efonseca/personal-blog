@@ -1,0 +1,91 @@
+.container {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.imageContainer {
+  flex: 1;
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: -15px;
+}
+
+.category {
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: white;
+}
+
+.category.technology {
+  background-color: #57c4ff;
+}
+
+.category.business {
+  background-color: #da85c7;
+}
+
+.category.society {
+  background-color: #7fb881;
+}
+
+.category.economics {
+  background-color: #ff7957;
+}
+
+.category.lifestyle {
+  background-color: #ffb04f;
+}
+
+.category.meditations {
+  background-color: #c208a9;
+}
+
+.category.projects {
+  background-color: #000000;
+}
+
+.link {
+  border-bottom: 1px solid rgb(133, 133, 133);
+  width: max-content;
+  padding: 2px 0px;
+}
+
+.link:hover {
+  color: rgb(182, 182, 182);
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .imageContainer {
+    height: auto; /* Let the height adjust automatically */
+  }
+
+  .textContainer {
+    gap: 15px;
+  }
+}

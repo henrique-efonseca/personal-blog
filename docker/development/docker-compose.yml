@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ../.. # Context is the root of your project
+      dockerfile: docker/development/nextjs.Dockerfile # Path to the Dockerfile within the context
+    restart: always
+    container_name: nextjs
+    ports:
+      - '3001:3001'
+      - '5555:5555' # Prisma Studio
+    volumes:
+      - ../..:/app # Mount the root of your project to /app in the container
+    depends_on:
+      - mongodb
+      - minio
+    networks:
+      - project_hub_network
+    env_file:
+      - ../../config/.env.development # Path to the .env.development file relative to the docker-compose.yml file
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb-data:/data/db
+      - ./scripts/ini/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js # Mount the init script
+    networks:
+      - project_hub_network
+    env_file:
+      - ../../config/.env.development # Path to the .env.development file relative to the docker-compose.yml file
+    environment:
+      MONGO_REPLICA_HOST: '127.0.0.1'
+      MONGO_REPLICA_PORT: '27017'
+      MONGO_COMMAND: 'mongosh'
+      MONGO_REPLICA_SET_NAME: 'rs0'
+
+    healthcheck:
+      test: test $$(echo 'rs.initiate({_id':' "rs0", members':' [{_id':' 1, "host"':' "mongodb':'27017"}]}) || rs.status().ok' | mongosh -u $${MONGO_INITDB_ROOT_USERNAME} -p $${MONGO_INITDB_ROOT_PASSWORD} --quiet) -eq 1
+      interval: 10s
+      start_period: 30s
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    ports:
+      - '8081:8081'
+    networks:
+      - project_hub_network
+    env_file:
+      - ../../config/.env.development # Path to the .env.development file relative to the docker-compose.yml file
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    restart: always
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+      - '39523:39523'
+    volumes:
+      - minio-data:/data
+    networks:
+      - project_hub_network
+    command: server /data # This ensures MinIO uses the correct data directory
+    env_file:
+      - ../../config/.env.development # Path to the .env.development file relative to the docker-compose.yml file
+
+volumes:
+  mongodb-data:
+    driver: local
+  minio-data:
+    driver: local
+
+networks:
+  project_hub_network:
+    driver: bridge

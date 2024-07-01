@@ -1,0 +1,13 @@
+.container {
+  flex: 5;
+}
+
+.title {
+  margin: 50px 0px;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}

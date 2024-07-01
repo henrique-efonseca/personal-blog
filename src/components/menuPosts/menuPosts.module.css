@@ -1,0 +1,90 @@
+.items {
+  margin-top: 35px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.imageContainer {
+  flex: 1;
+  aspect-ratio: 1/1;
+  position: relative;
+}
+
+.image {
+  border-radius: 50%;
+  border: 2px solid rgba(102, 102, 102, 0.158);
+  object-fit: cover;
+}
+
+.textContainer {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.style {
+  background-color: #789cff;
+}
+
+.postTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--softTextColor);
+}
+
+.detail {
+  font-size: 12px;
+}
+
+.date {
+  color: gray;
+}
+
+.categories {
+  gap: 5px;
+  display: flex;
+}
+
+.category {
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  color: white;
+}
+
+.category.technology {
+  background-color: #57c4ff;
+}
+
+.category.business {
+  background-color: #da85c7;
+}
+
+.category.society {
+  background-color: #7fb881;
+}
+
+.category.economics {
+  background-color: #ff7957;
+}
+
+.category.lifestyle {
+  background-color: #ffb04f;
+}
+
+.category.meditations {
+  background-color: #c208a9;
+}
+
+.category.projects {
+  background-color: #000000;
+}

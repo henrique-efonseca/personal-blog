@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=production
+    networks:
+      - project_hub_network
+
+
+
+networks:
+  project_hub_network:
+    driver: bridge

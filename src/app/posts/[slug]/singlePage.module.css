@@ -1,0 +1,252 @@
+.infoContainer {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.title {
+  font-size: 64px;
+  margin-top: 0px;
+  margin-bottom: 0px; /* Adjust margin-bottom to bring categories closer */
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0px;
+  margin-top: 80px; /* Adjust margin-top to bring categories closer */
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: -20px;
+
+  margin-bottom: 30px;
+}
+
+.userImageContainer {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userTextContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--softTextColor);
+  margin-top: 30px;
+}
+
+.username,
+.date {
+  font-size: 15px;
+  font-weight: 300;
+  display: inline; /* Ensures both elements are inline */
+}
+
+.imageContainer {
+  flex: 1;
+  height: 350px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  gap: 50px;
+}
+
+.post {
+  flex: 5;
+  margin-top: 60px;
+}
+
+.description p {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1536px) {
+  .title {
+    font-size: 54px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .imageContainer {
+    width: auto;
+    height: 25vh;
+  }
+}
+@media screen and (max-width: 640px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .description p {
+    font-size: 18px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.editButton,
+.deleteButton {
+  width: 75px; /* Fixed width */
+  height: 30px; /* Height to ensure vertical centering */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px; /* Ensure the text size is the same */
+  font-weight: 600;
+}
+.editButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
+
+.editButton:hover {
+  background-color: #388e3c;
+}
+
+/* Styles for the modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.confirmButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmButton:disabled {
+  background-color: #a5d6a7; /* Lighter green for disabled state */
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.category {
+  color: white;
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  width: max-content;
+  margin-right: 10px; /* Add space between categories */
+  margin-bottom: 0px; /* Add space after each category */
+}
+
+.category.technology {
+  background-color: #57c4ff;
+}
+
+.category.business {
+  background-color: #da85c7;
+}
+
+.category.society {
+  background-color: #7fb881;
+}
+
+.category.economics {
+  background-color: #ff7957;
+}
+
+.category.lifestyle {
+  background-color: #ffb04f;
+}
+
+.category.meditations {
+  background-color: #c208a9;
+}
+
+.category.projects {
+  background-color: #000000;
+}
