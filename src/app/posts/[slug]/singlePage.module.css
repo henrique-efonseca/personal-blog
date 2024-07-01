@@ -151,6 +151,7 @@
   }
 
   .textContainer {
+    margin-top: -60px;
     padding: 10px;
   }
 
@@ -164,6 +165,22 @@
     gap: 20px;
     max-width: 100%;
     overflow-x: hidden;
+  }
+}
+
+/* Desktop layout */
+@media screen and (min-width: 641px) {
+  .content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .post {
+    flex: 4.5;
+  }
+
+  .sidebar {
+    flex: 1;
   }
 }
 

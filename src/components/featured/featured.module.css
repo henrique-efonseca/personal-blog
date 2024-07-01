@@ -50,6 +50,9 @@
   border-radius: 5px;
   width: max-content;
   cursor: pointer;
+  background-color: #575757;
+  color: white;
+  text-decoration: none; /* Remove any default link styling */
 }
 
 @media screen and (max-width: 1280px) {

@@ -10,6 +10,8 @@ import {
   faSignOutAlt,
   faStar,
   faList,
+  faBars,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './authLinks.module.css';
 import ThemeToggle from '../themeToggle/ThemeToggle';
@@ -20,11 +22,18 @@ const AuthLinks = () => {
   const { data: session, status } = useSession();
   const pathname = usePathname(); // Correct usage for app directory
   const dropdownRef = useRef(null);
+  const responsiveMenuRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
+      }
+      if (
+        responsiveMenuRef.current &&
+        !responsiveMenuRef.current.contains(event.target)
+      ) {
+        setOpen(false);
       }
     };
 
@@ -32,11 +41,17 @@ const AuthLinks = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [dropdownRef]);
+  }, [dropdownRef, responsiveMenuRef]);
 
   const isMe = session?.user?.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL;
 
   const isWritePage = pathname === '/write'; // Check the current path
+
+  const handleBurgerClick = () => {
+    console.log(dropdownOpen);
+    setDropdownOpen(!dropdownOpen);
+    setOpen(!dropdownOpen);
+  };
 
   return (
     <>
@@ -93,15 +108,14 @@ const AuthLinks = () => {
           </div>
         </>
       )}
-      <div className={styles.burger} onClick={() => setOpen(!open)}>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
+      <div className={styles.burger} onClick={handleBurgerClick}>
+        <FontAwesomeIcon icon={open ? faTimes : faBars} size="2x" />
       </div>
       {open && (
-        <div className={styles.responsiveMenu}>
+        <div ref={responsiveMenuRef} className={styles.responsiveMenu}>
           <Link
             onClick={() => {
+              setOpen(false);
               window.location.href = '/';
             }}
             href="/"
@@ -110,6 +124,7 @@ const AuthLinks = () => {
           </Link>
           <Link
             onClick={() => {
+              setOpen(false);
               window.location.href = '/blog';
             }}
             href="/blog"
@@ -118,6 +133,7 @@ const AuthLinks = () => {
           </Link>
           <Link
             onClick={() => {
+              setOpen(false);
               window.location.href = '/blog?cat=projects';
             }}
             href="/blog?cat=projects"
@@ -129,6 +145,7 @@ const AuthLinks = () => {
           {status === 'unauthenticated' ? (
             <Link
               onClick={() => {
+                setOpen(false);
                 window.location.href = '/login';
               }}
               href="/login"
@@ -136,7 +153,13 @@ const AuthLinks = () => {
               <b>Login</b>
             </Link>
           ) : (
-            <span className={styles.link} onClick={signOut}>
+            <span
+              className={styles.link}
+              onClick={() => {
+                setOpen(false);
+                signOut();
+              }}
+            >
               Logout
             </span>
           )}

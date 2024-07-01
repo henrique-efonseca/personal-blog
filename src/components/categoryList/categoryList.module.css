@@ -72,7 +72,13 @@
   }
 }
 @media screen and (max-width: 640px) {
+  .categories {
+    justify-content: flex-start; /* Align to the left on mobile */
+  }
   .category {
     width: 100%;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the start */
+    padding-left: 90px; /* Optional: add some padding to the left */
   }
 }

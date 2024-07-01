@@ -35,7 +35,7 @@ const CardList = ({ cat, page, postsPerPage }) => {
     };
 
     loadPosts();
-  }, [cat]);
+  }, [cat, page, postsPerPage]);
 
   return (
     <div className={styles.container}>

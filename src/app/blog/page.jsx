@@ -1,14 +1,15 @@
 'use client';
-import { useRouter } from 'next/navigation'; // Use the correct import for useRouter in Next.js 13+ app directory
+import { useRouter, useSearchParams } from 'next/navigation'; // Use the correct import for useRouter in Next.js 13+ app directory
 import CardList from '@/components/cardList/CardList';
 import styles from './blogPage.module.css';
 import Menu from '@/components/menu/Menu';
 
-const BlogPage = ({ searchParams }) => {
+const BlogPage = () => {
   const router = useRouter();
-  const page = parseInt(searchParams.page) || 1;
-  const { cat } = searchParams;
-  const postsPerPage = 2;
+  const searchParams = useSearchParams();
+  const page = parseInt(searchParams.get('page')) || 1;
+  const cat = searchParams.get('cat');
+  const postsPerPage = 5;
 
   // Function to get the appropriate class name for the category
   const getCategoryClass = (category) => {
@@ -33,23 +34,48 @@ const BlogPage = ({ searchParams }) => {
   };
 
   const handlePagination = (newPage) => {
+    console.log('handlePagination');
     const newURL = cat
       ? `/blog?cat=${cat}&page=${newPage}&postsPerPage=${postsPerPage}`
       : `/blog?page=${newPage}&postsPerPage=${postsPerPage}`;
+
+    console.log('newPage', newPage);
+    console.log('newURL', newURL);
 
     window.location.href = newURL;
     window.scrollTo(0, 0);
   };
 
+  const isMobile = window.innerWidth < 768; // 768px is the breakpoint for mobile devices
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.fullWidthContainer}`}>
       <h1 className={`${styles.title} ${getCategoryClass(cat)}`}>{cat} Blog</h1>
-      <div className={styles.content}>
-        <CardList page={page} cat={cat} postsPerPage={postsPerPage} />
-        <div className={styles.menuContainer}>
-          <Menu recentPosts={false} />
+      {isMobile && (
+        <div className={styles.fullWidthContainer}>
+          <CardList
+            className={`${styles.fullWidthContainer}`}
+            page={page}
+            cat={cat}
+            postsPerPage={postsPerPage}
+          />
         </div>
-      </div>
+      )}
+
+      {!isMobile && (
+        <div className={styles.content}>
+          <CardList
+            className={`${styles.fullWidthContainer}`}
+            cat={cat}
+            postsPerPage={postsPerPage}
+            page={page}
+          />
+          <div className={styles.menuContainer}>
+            <Menu recentPosts={false} />
+          </div>
+        </div>
+      )}
+
       <div className={styles.pagination}>
         <button
           disabled={page <= 1}

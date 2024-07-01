@@ -113,7 +113,9 @@ const SinglePage = ({ params }) => {
             <Comments postSlug={data?.slug} postId={data?.id} />
           </div>
         </div>
-        <Menu recentPosts={true} />
+        <div className={styles.sidebar}>
+          <Menu recentPosts={true} categories={false} />
+        </div>
       </div>
       {showModal && (
         <div className={styles.modal}>
