@@ -5,7 +5,6 @@ import Footer from '@/components/footer/Footer';
 import { ThemeContextProvider } from '@/context/ThemeContext';
 import ThemeProvider from '@/providers/ThemeProvider';
 import AuthProvider from '@/providers/AuthProvider';
-import MobileDetection from '@/components/maintenance/mobileMaintenance'; // Import MobileDetection
 
 const inter = Inter({ subsets: ['latin'] });
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] }); // Add Roboto here
