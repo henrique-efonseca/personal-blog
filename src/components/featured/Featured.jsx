@@ -10,7 +10,7 @@ const truncateText = (text, maxLength) => {
   return text?.substring(0, maxLength) + '...';
 };
 
-const featuredPost = 'how-i-built-the-uber-of-elderly-care';
+const featuredPost = 'how-i-developed-a-satellite-the-size-of-a-soda-can';
 
 const fetchPostData = async () => {
   const res = await fetch(`/api/posts/${featuredPost}`, {
