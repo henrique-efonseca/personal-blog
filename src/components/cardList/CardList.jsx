@@ -5,9 +5,12 @@ import styles from './cardList.module.css';
 import Card from '../card/Card';
 
 const getData = async (cat, page, postsPerPage) => {
-  const res = await fetch(`/api/posts?cat=${cat || ''}&page=${page || 1}&postsPerPage=${postsPerPage || 10}`, {
-    cache: 'no-store',
-  });
+  const res = await fetch(
+    `/api/posts?cat=${cat || ''}&page=${page || 1}&postsPerPage=${postsPerPage || 10}`,
+    {
+      cache: 'no-store',
+    },
+  );
 
   if (!res.ok) {
     throw new Error('Failed');

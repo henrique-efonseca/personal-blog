@@ -64,7 +64,9 @@ const Featured = () => {
         </div>
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>{data?.title}</h1>
-          <p className={styles.postDesc}>{truncateText(removeHtmlTags(data?.desc), 180)}</p>
+          <p className={styles.postDesc}>
+            {truncateText(removeHtmlTags(data?.desc), 180)}
+          </p>
           <button
             onClick={() => (window.location.href = `/posts/${featuredPost}`)}
             className={styles.button}

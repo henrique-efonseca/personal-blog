@@ -9,10 +9,6 @@ export const GET = async (req) => {
   const cat = searchParams.get('cat');
   const postsPerPage = parseInt(searchParams.get('postsPerPage')) || 10;
 
-  console.log("postsPerPage", postsPerPage);
-  console.log("page", page);
-
-
   const query = {
     take: postsPerPage,
     skip: postsPerPage * (page - 1),
@@ -30,7 +26,6 @@ export const GET = async (req) => {
     },
   };
 
-
   if (cat) {
     query.where = {
       categories: {
@@ -43,8 +38,7 @@ export const GET = async (req) => {
     };
   }
 
-  console.log("query", JSON.stringify(query, null, 2));
-
+  console.log('query', JSON.stringify(query, null, 2));
 
   try {
     const [posts, count] = await prisma.$transaction([
