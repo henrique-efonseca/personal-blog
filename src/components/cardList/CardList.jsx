@@ -78,7 +78,9 @@ const CardList = ({ page = 1, cat, maxPosts }) => {
           ? displayedPosts.map((item) => <Card item={item} key={item.slug} />)
           : !loading && (
               <div className={styles.noPostsMessage}>
-                {"Ups, there's nothing here yet. Guess I should get back to work! 🤔"}
+                {
+                  "Ups, there's nothing here yet. Guess I should get back to work! 🤔"
+                }
               </div>
             )}
       </div>

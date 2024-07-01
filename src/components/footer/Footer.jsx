@@ -25,9 +25,9 @@ const Footer = () => {
         <p className={styles.desc}>
           Hi, I&apos;m Henrique Fonseca and this is my blog. Here I share my
           projects, experiences and thoughts in areas like technology, business,
-          society, economics, lifestyle and philosophy. I don&apos;t consider myself
-          an expert in any of these fields, but I love learning about different
-          topics and sharing my thoughts with the world.
+          society, economics, lifestyle and philosophy. I don&apos;t consider
+          myself an expert in any of these fields, but I love learning about
+          different topics and sharing my thoughts with the world.
         </p>
 
         <div className={styles.rights}>
