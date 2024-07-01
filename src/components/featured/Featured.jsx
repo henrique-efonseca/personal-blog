@@ -3,13 +3,14 @@ import React from 'react';
 import styles from './featured.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import removeHtmlTags from '../../utils/removeHtmlTags';
 
 const truncateText = (text, maxLength) => {
   if (text?.length <= maxLength) return text;
   return text?.substring(0, maxLength) + '...';
 };
 
-const featuredPost = '1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit';
+const featuredPost = 'how-i-built-the-uber-of-elderly-care';
 
 const fetchPostData = async () => {
   const res = await fetch(`/api/posts/${featuredPost}`, {
@@ -63,7 +64,7 @@ const Featured = () => {
         </div>
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>{data?.title}</h1>
-          <p className={styles.postDesc}>{truncateText(data?.desc, 180)}</p>
+          <p className={styles.postDesc}>{truncateText(removeHtmlTags(data?.desc), 180)}</p>
           <button
             onClick={() => (window.location.href = `/posts/${featuredPost}`)}
             className={styles.button}

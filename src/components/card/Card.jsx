@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './card.module.css';
 import Link from 'next/link';
+import removeHtmlTags from '@/utils/removeHtmlTags';
 
 const Card = ({ item }) => {
   const formatDate = (dateString) => {
@@ -43,7 +44,7 @@ const Card = ({ item }) => {
         <div
           className={styles.desc}
           dangerouslySetInnerHTML={{
-            __html: `${item?.desc.substring(0, 120)}...`,
+            __html: `${removeHtmlTags(item?.desc).substring(0, 150)}...`,
           }}
         />
         <Link href={`/posts/${item.slug}`} className={styles.link}>
