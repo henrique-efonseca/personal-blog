@@ -5,15 +5,17 @@ import { NextResponse } from 'next/server';
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
 
-  const page = searchParams.get('page') || 1;
+  const page = parseInt(searchParams.get('page')) || 1;
   const cat = searchParams.get('cat');
-  const postsPerPage = searchParams.get('postsPerPage');
+  const postsPerPage = parseInt(searchParams.get('postsPerPage')) || 10;
 
-  const POST_PER_PAGE = postsPerPage ? parseInt(postsPerPage) : 20;
+  console.log("postsPerPage", postsPerPage);
+  console.log("page", page);
+
 
   const query = {
-    take: POST_PER_PAGE,
-    skip: POST_PER_PAGE * (page - 1),
+    take: postsPerPage,
+    skip: postsPerPage * (page - 1),
     where: {},
     include: {
       user: true,
@@ -28,6 +30,7 @@ export const GET = async (req) => {
     },
   };
 
+
   if (cat) {
     query.where = {
       categories: {
@@ -39,6 +42,9 @@ export const GET = async (req) => {
       },
     };
   }
+
+  console.log("query", JSON.stringify(query, null, 2));
+
 
   try {
     const [posts, count] = await prisma.$transaction([

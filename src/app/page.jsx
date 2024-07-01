@@ -15,7 +15,7 @@ export default function Home({ searchParams }) {
       <Featured />
       <CategoryList />
       <div className={styles.content}>
-        <CardList page={page} maxPosts={3} />
+        <CardList page={page} postsPerPage={3} />
       </div>
     </div>
   );

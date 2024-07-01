@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './cardList.module.css';
 import Card from '../card/Card';
 
-const getData = async (page, cat) => {
-  const res = await fetch(`/api/posts?page=${page}&cat=${cat || ''}`, {
+const getData = async (cat, page, postsPerPage) => {
+  const res = await fetch(`/api/posts?cat=${cat || ''}&page=${page || 1}&postsPerPage=${postsPerPage || 10}`, {
     cache: 'no-store',
   });
 
@@ -16,34 +16,15 @@ const getData = async (page, cat) => {
   return res.json();
 };
 
-const CardList = ({ page = 1, cat, maxPosts }) => {
+const CardList = ({ cat, page, postsPerPage }) => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const [currentPage, setCurrentPage] = useState(page);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPosts = async () => {
-      if (!hasMore) {
-        return; // No need to load more if hasMore is false
-      }
-
-      setLoading(true);
       try {
-        const { posts: newPosts, count } = await getData(currentPage, cat);
-
-        // Update posts and hasMore based on new data
-        if (Array.isArray(newPosts)) {
-          setPosts((prevPosts) => [...prevPosts, ...newPosts]);
-          setHasMore(
-            newPosts.length > 0 &&
-              newPosts.length * currentPage < count &&
-              posts.length + newPosts.length < maxPosts,
-          );
-        } else {
-          console.error('newPosts is not an array', newPosts);
-          setHasMore(false);
-        }
+        const { posts: newPosts } = await getData(cat, page, postsPerPage);
+        setPosts(newPosts);
       } catch (error) {
         console.error('Error loading posts:', error);
       }
@@ -51,40 +32,24 @@ const CardList = ({ page = 1, cat, maxPosts }) => {
     };
 
     loadPosts();
-  }, [currentPage, cat, maxPosts, posts.length, hasMore]); // Include hasMore in dependencies
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >=
-          document.body.offsetHeight - 500 &&
-        !loading // Check if loading is false before fetching more
-      ) {
-        setCurrentPage((prevPage) => prevPage + 1);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [loading]); // Only listen to changes in loading state for scroll event
-
-  const displayedPosts = posts.slice(0, maxPosts);
+  }, [cat]);
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recent Posts</h1>
       <div className={styles.posts}>
-        {displayedPosts.length > 0
-          ? displayedPosts.map((item) => <Card item={item} key={item.slug} />)
-          : !loading && (
-              <div className={styles.noPostsMessage}>
-                {
-                  "Ups, there's nothing here yet. Guess I should get back to work! 🤔"
-                }
-              </div>
-            )}
+        {loading ? (
+          <div className={styles.loading}>Loading...</div>
+        ) : posts.length > 0 ? (
+          posts.map((item) => <Card item={item} key={item.slug} />)
+        ) : (
+          <div className={styles.noPostsMessage}>
+            {
+              "Ups, there's nothing here yet. Guess I should get back to work! 🤔"
+            }
+          </div>
+        )}
       </div>
-      {loading && <div className={styles.loading}>Loading...</div>}
     </div>
   );
 };

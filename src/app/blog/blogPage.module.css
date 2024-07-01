@@ -56,3 +56,37 @@
 .title.default {
   background-color: rgb(141, 141, 141);
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-right: 300px;
+}
+
+.pageButton {
+  background-color: #777777;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.pageButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pageButton:not(:disabled):hover {
+  background-color: #525252;
+}
+
+.pageNumber {
+  font-size: 16px;
+  margin: 0 10px;
+}
