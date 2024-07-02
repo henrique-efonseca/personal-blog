@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  nextjs:
+  blog_nextjs:
     build:
       context: ../.. # Context is the root of your project
       dockerfile: docker/development/nextjs.Dockerfile # Path to the Dockerfile within the context
@@ -79,4 +79,4 @@ volumes:
 
 networks:
   project_hub_network:
-    driver: bridge
+    external: true
