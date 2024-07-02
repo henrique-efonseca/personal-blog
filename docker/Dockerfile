@@ -13,9 +13,11 @@ RUN npm install
 # Copy the rest of the application code.
 COPY . .
 
+RUN npm install -g dotenv-cli
+
 # Generate Prisma Client. This needs to be done after the application code is copied, because Prisma Client is generated based on your Prisma schema and your application code. 
 # It needs to be done before the application is built, because the generated Prisma Client is used in the application code.
-RUN npm run prisma:generate
+RUN dotenv -e ./config/.env.development -- npx prisma generate
 
 # Build the Next.js application.
 RUN npm run build
