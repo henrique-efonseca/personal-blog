@@ -33,6 +33,15 @@ const BlogPage = () => {
     }
   };
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  // Update the document title with the category name
+  if (cat) {
+    document.title = `HF Blog | ${capitalizeFirstLetter(cat)} Blog`;
+  }
+
   const handlePagination = (newPage) => {
     console.log('handlePagination');
     const newURL = cat
