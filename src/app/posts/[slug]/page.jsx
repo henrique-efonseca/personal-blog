@@ -46,34 +46,11 @@ const SinglePage = ({ params }) => {
     fetchData();
   }, [slug]);
 
-  const setMetaTags = () => {
-    const metaTitle = document.querySelector('meta[property="og:title"]');
-    const metaDescription = document.querySelector(
-      'meta[property="og:description"]',
-    );
-    const metaImage = document.querySelector('meta[property="og:image"]');
-
-    if (metaTitle) {
-      metaTitle.setAttribute('content', `HF Blog | ${data.title}`);
-    }
-
-    if (metaDescription) {
-      metaDescription.setAttribute('content', data.desc);
-    }
-
-    if (metaImage) {
-      metaImage.setAttribute('content', data.img); //
-    }
-  };
-
   // Update the document title with the post title
   useEffect(() => {
     // Update the document title with the post title
     if (data?.title) {
       document.title = `HF Blog | ${data.title}`;
-
-      // Set meta tags
-      setMetaTags();
     }
   }, [data]);
 
