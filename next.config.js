@@ -15,14 +15,14 @@ console.log(`Using ${env} environment`);
 
 const nextConfig = {
   images: {
-    // allow images from all domains
-    domains: [
-      'localhost',
-      'lh3.googleusercontent.com',
-      'firebasestorage.googleapis.com',
-      'photographylife.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
   },
 };
+
 
 module.exports = nextConfig;
