@@ -49,7 +49,7 @@ const Navbar = () => {
         >
           Projects
         </Link>
-        <Link href="http://localhost:3000" className={styles.link}>
+        <Link href="https://henriquefonseca.me" className={styles.link}>
           About
         </Link>
 

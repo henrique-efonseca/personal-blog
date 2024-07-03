@@ -41,9 +41,9 @@ const Footer = () => {
           <span className={styles.listTitle}>Links</span>
           <Link href="/blog">Blog</Link>
           <Link href="/blog?cat=projects">Projects</Link>
-          <Link href="localhost:3000">About</Link>
-          <Link href="localhost:3000#contact">Contact</Link>
-          <Link href="localhost:3001/login">Login</Link>
+          <Link href="https://henriquefonseca.me">About</Link>
+          <Link href="https://henriquefonseca.me/#contact">Contact</Link>
+          <Link href="/login">Login</Link>
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Tags</span>

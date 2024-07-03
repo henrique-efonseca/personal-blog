@@ -141,7 +141,7 @@ const AuthLinks = () => {
             Projects
           </Link>
 
-          <Link href="http://localhost:3001">About</Link>
+          <Link href="https://henriquefonseca.me">About</Link>
           {status === 'unauthenticated' ? (
             <Link
               onClick={() => {
